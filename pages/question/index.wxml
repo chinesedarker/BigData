@@ -1,0 +1,54 @@
+<!--pages/question/index.wxml-->
+<view class="card">
+	<!-- 进度条 -->
+	<view class="padding bg-white ">
+		<view class="flex margin-top">
+			<view class="cu-progress round">
+				<view class="bg-green" style="width:{{percentage}}%;"></view>
+			</view>
+			<text class="margin-left">{{percentage}}%</text>
+		</view>
+	</view>
+	<!-- 题目 -->
+	<view class="title">
+		<button class="cu-btn icon bg-red">
+			<text>{{number}}</text>
+		</button>
+		<text class="text-black text-bold titleTxt">{{title}}</text>
+	</view>
+	<!-- 选择 -->
+	<checkbox-group bindchange="checkboxChange">
+		<view class="cu-form-group" wx:for="{{questionList}}" wx:key="questionList">
+			<view class="title">{{item.content}}</view>
+			<checkbox value="{{questionType}}" checked="{{checkboxState}}" class="round blue"></checkbox>
+		</view>
+	</checkbox-group>
+	<!-- 按键 -->
+	<view class="ButtonCSS">
+		<view class="{{returnClass}}">
+			<button class="cu-btn round bg-red" role="button" aria-disabled="false"><span
+					style="margin-right:28rpx">返</span>回</button>
+		</view>
+		<view class="{{backClass}}">
+			<button class="cu-btn round bg-red" role="button" aria-disabled="false" bindtap="backQuestion">上一题</button>
+		</view>
+		<view class="{{greyClass}}">
+			<button class="cu-btn round bg-grey " role="button" aria-disabled="false">下一题<span
+					style="color:red;">{{waitTime}}</span>s</button>
+		</view>
+		<view class="{{greenClass}}">
+			<button class="cu-btn round bg-green " role="button" aria-disabled="false" bindtap="nextQuestion">下一题</button>
+		</view>
+		<view class="{{referClass}}">
+			<button class="cu-btn round bg-green " role="button" aria-disabled="false" bindtap="referData"><span
+					style="margin-right:28rpx">提</span>交</button>
+		</view>
+	</view>
+	<view style="clear: both;"></view>
+	<!-- <button bindtap="referData">测试提交按钮</button> -->
+	<view class='cu-load load-modal' wx:if="{{loadModal}}">
+		<!-- <view class='cuIcon-emojifill text-orange'></view> -->
+		<image src='../../images/loading.png' class='png' mode='aspectFit'></image>
+		<view class='gray-text'>提交中...</view>
+	</view>
+</view>

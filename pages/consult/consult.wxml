@@ -1,0 +1,32 @@
+<!--pages/consult/consult.wxml-->
+
+<view class="cu-chat" id="bottom">
+<view class="cu-info round">交流QQ群：378995136</view>
+  <view wx:for="{{syas}}" wx:for-item="item" wx:for-index="key" wx:key="item">
+    <view class="cu-item" wx:if="{{item.robot.length>0}}">
+      <view class="cu-avatar radius" style="background-image:url({{headLeft}});"></view>
+      <view class="main">
+        <view class="content shadow">
+          <text decode="{{true}}">{{item.robot}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-item self" wx:if="{{item.isay.length>0}}">
+      <view class="main">
+        <view class="content bg-green shadow">
+          <text decode="{{true}}">{{item.isay}}</text>
+        </view>
+      </view>
+      <open-data class="cu-avatar radius" type="userAvatarUrl"></open-data>
+    </view>
+  </view>
+  <view style="height:50px;"></view>
+</view>
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
+  <view class="action">
+    <text class="cuIcon-sound text-grey"></text>
+  </view>
+  <input class="solid-bottom" bindfocus="InputFocus" bindblur="InputBlur" value="{{inputValue}}" adjust-position="{{false}}" focus="{{false}}"
+    bindinput='getInputValue' maxlength="300" cursor-spacing="10"></input>
+  <button class="cu-btn bg-green shadow" bindtap="converSation">发送</button>
+</view>

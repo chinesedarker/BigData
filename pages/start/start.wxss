@@ -1,0 +1,13 @@
+/* Pages/start/start.wxss */
+.content{
+  position: relative;
+}
+
+.start-btn{
+  margin-top: 10px;
+  position:absolute;
+}
+.content image{
+  width: 100vw;
+  height: 100vh;
+}

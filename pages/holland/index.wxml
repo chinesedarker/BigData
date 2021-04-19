@@ -1,0 +1,28 @@
+<!--pages/holland/index.wxml-->
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+	<view class='text-center margin-bottom text-lg  text-grey'>霍兰德职业兴趣测试</view>
+	<view class='text-content'>
+		<view class='margin-top-sm' style="text-indent:2em;">霍兰德职业兴趣测试由美国著名职业教育专家霍兰德(Holland)经过长期实践研究编制而成，该测评具有较高的准确性，大量应用在指导求学、求职和工作转换等方面。 霍兰德认为兴趣是人们活动的巨大动力，凡是人们有兴趣的职业，都可以提高其积极性，促使其积极地、愉快地从事该职业，并有助于其在该职业上取得成功。霍兰德认为人的职业兴趣可分为现实型、研究型、艺术型、社会型、企业型和常规型六种类型。</view>
+		<video id="myVideo" custom-cache="{{false}}" class="videoCSS" src="{{videoSrc}}" enable-danmu controls show-fullscreen-btn show-center-play-btn="{{false}}" auto-pause-if-navigate auto-pause-if-open-native show-play-btn object-fit="fill" bindpause="bindpause" bindended="bindended">
+			<cover-view class="video_cover" wx:if="{{isShow}}" bindtap="bindplay">
+				<cover-image src="{{videoCoverImg}}" mode="widthFix"></cover-image>
+				<cover-image src="{{videoPlayIcon}}" mode="widthFix" class="video_play_icon"></cover-image>
+				<cover-view class="video_bg_black">
+					<cover-view class="video_cover_txt">
+						<cover-view>
+							<cover-view class="video_txt">一分钟了解</cover-view>
+							<cover-view class="video_txt">利用霍兰德职业兴趣测试</cover-view>
+						</cover-view>
+						<cover-image src="{{videoLockIcon}}" class="video_icon_lock" mode="widthFix"></cover-image>
+					</cover-view>
+				</cover-view>
+			</cover-view>
+		</video>
+		<view class="margin-tb-sm text-center" bindtap="backToIndex">
+			<button class="cu-btn round bg-red shadow" role="button" aria-disabled="false">点击返回</button>
+		</view>
+    <view class="margin-tb-sm text-center" bindtap="gotoLogin">
+			<button class="cu-btn round bg-green shadow" role="button" aria-disabled="false">立即测试</button>
+		</view>
+	</view>
+</view>

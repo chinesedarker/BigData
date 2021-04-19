@@ -1,0 +1,56 @@
+<!--pages/index/index.wxml-->
+<!-- 轮播图 -->
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+	<swiper-item wx:for="{{swiperList}}" wx:key="index">
+		<image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+		<video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+	</swiper-item>
+</swiper>
+<!-- 宫格列表 -->
+<view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+	<view class="cu-item" bindtap="{{item.click}}" wx:for="{{iconList}}" wx:key="index" wx:if="{{index<gridCol*2}}">
+		<view class="cuIcon-{{item.icon}} text-{{item.color}}">
+			<view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+				<block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+			</view>
+		</view>
+		<text>{{item.name}}</text>
+	</view>
+</view>
+<!-- 功能 -->
+<!-- 霍兰德 -->
+<view class="cu-card article {{isCard?'no-card':''}}" bindtap="holland">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">霍兰德职业兴趣测试</view>
+    </view>
+    <view class="content">
+      <image src="../../images/hld.jpg" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content"> 无论你现在从事什么职业，你都应该做这个职业测试，看看自己到底喜欢做什么，适合做什么……</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">95%用户觉得有用</view>
+          <view class="cu-tag bg-green light sm round">强力推荐</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 心理健康测试 -->
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">大学生心理健康测试</view>
+    </view>
+    <view class="content">
+      <image src="../../images/xljk.jpg" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content"> 无论你现在从事什么职业，你都应该做这个职业测试，看看自己到底喜欢做什么，适合做什么……</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">95%用户觉得有用</view>
+          <view class="cu-tag bg-green light sm round">强力推荐</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

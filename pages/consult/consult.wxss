@@ -1,0 +1,7 @@
+/* pages/consult/consult.wxss */
+.typenone{
+  display: none;
+}
+.typeblock{
+  display: block;
+}

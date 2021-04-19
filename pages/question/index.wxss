@@ -1,0 +1,36 @@
+/* pages/question/index.wxss */
+.card{
+  border-radius: 10rpx;
+  width: 94vw;
+  margin-left: 3vw;
+  min-height: 90vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  background-color:white;
+  box-shadow: 15rpx 10rpx 50rpx 15rpx rgba(85, 85, 85, 0.10);
+}
+.bg-green{
+  background-color: var(--green);
+}
+.title{
+  width: 88vw;
+  margin-left: 3vw;
+  height: 64rpx;
+  /* background-color: black; */
+}
+.titleTxt{
+  margin-left: 15rpx;
+}
+.ButtonCSS{
+  width: 60vw;
+  margin-left: 17vw;
+}
+.leftButton{
+  float: left;
+}
+.rightButton{
+  float: right;
+}
+.displayNone{
+ display: none;
+}

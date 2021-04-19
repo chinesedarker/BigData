@@ -1,0 +1,47 @@
+/* pages/grade/grade.wxss */
+.radarContainer {
+   background-color: white;
+   width: 100%;
+   height: 300px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+
+}
+
+.radarCanvas {
+   width: 320px;
+   height: 320px;
+   margin: 0 auto;
+   position: absolute;
+}
+
+.explain {
+   width: 100%;
+   min-height: 100px;
+   background: white;
+   margin-bottom: 10vh;
+}
+
+.explainTitle {
+   color: red;
+   font-weight: bold;
+}
+
+.bottomButton {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   height: 10vh;
+   /* border-top: 1px solid palevioletred; */
+}
+
+.bottomButtonLeft {
+   float: left;
+   margin-left: 15vw;
+}
+.bottomButtonRight{
+   float: right;
+   margin-right: 15vw;
+}

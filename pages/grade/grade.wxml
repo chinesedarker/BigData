@@ -1,0 +1,54 @@
+<!--pages/grade/grade.wxml-->
+<view class="padding flex text-center text-grey bg-white shadow-warp">
+  <view class="flex flex-sub flex-direction solid-right">
+    <view class="text-xxl text-orange">{{type1[0]}}</view>
+    <view class="margin-top-sm">{{type2[0]}}</view>
+  </view>
+  <view class="flex flex-sub flex-direction solid-right">
+    <view class="text-xxl text-blue">{{type1[1]}}</view>
+    <view class="margin-top-sm"> {{type2[1]}}</view>
+  </view>
+  <view class="flex flex-sub flex-direction">
+    <view class="text-xxl text-green">{{type1[2]}}</view>
+    <view class="margin-top-sm"> {{type2[2]}}</view>
+  </view>
+</view>
+<!-- 六边形 -->
+<view class='radarContainer'>
+  <canvas class='radarCanvas' canvas-id='radarCanvas'></canvas>
+</view>
+<!-- 成绩单 -->
+<view class="cu-list grid col-3 no-border">
+  <view class="cu-item" wx:for="{{chanelArray}}" wx:key="index" wx:for-index='i'>
+    <text class="text-black text-bold">{{chanelArray[i][0]}}型：{{chanelArray[i][1]}}</text>
+  </view>
+</view>
+<!-- 文字 -->
+<view class="explain">
+  <!-- 霍兰德代码解析 -->
+  <view class="flex-sub text-center">
+    <view class=" text-bold padding text-red">霍兰德代码职业信息</view>
+  </view>
+  <view class="padding">{{hollandCode[0]}}：{{hollandCode[1]}}</view>
+  <!-- 首字母解析 -->
+  <view class="flex-sub text-center">
+    <view class=" text-bold padding text-red">首字母解析</view>
+  </view>
+  <view wx:for="{{firstCode}}" wx:key="firstCode" wx:for-index='i'>
+    <text class="padding text-bold">{{firstCode[i][0]}}：\n </text>
+    <view class="text-left padding">
+      <span class="explainTitle">人格特征：</span>{{firstCode[i][1]}}
+    </view>
+    <view class="text-left padding">
+      <span class="explainTitle">职业特征：</span>{{firstCode[i][2]}}
+    </view>
+  </view>
+</view>
+<view class="bottomButton bg-gradual-blue ">
+    <view class=" margin-tb-sm text-center bottomButtonLeft">
+      <button class="cu-btn lg round  button-hover bg-green" bindtap="backHome">返回首页</button>
+    </view>
+    <view class="margin-tb-sm text-center bottomButtonRight">
+      <button class="cu-btn lg round  button-hover bg-green" bindtap="consult">智能咨询</button>
+    </view>
+</view>

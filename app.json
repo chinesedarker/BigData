@@ -1,0 +1,18 @@
+{
+  "pages":[
+    "pages/start/start",
+    "pages/index/index",
+    "pages/question/index",
+    "pages/holland/index",
+    "pages/login/login",
+    "pages/grade/grade",
+    "pages/consult/consult"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "sitemapLocation": "sitemap.json"
+}
