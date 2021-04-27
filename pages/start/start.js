@@ -11,7 +11,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 何鹏镜测试2
+    // 测试
 
   },
 
