@@ -38,9 +38,9 @@ Page({
             header: {
               'content-type': 'json'
             },
+            // 获取openid
             success: function (res) {
               var openid = res.data.openid //返回openid
-              
               console.log('openid为' + openid);
             }
 
