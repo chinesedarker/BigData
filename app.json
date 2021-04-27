@@ -6,7 +6,17 @@
     "pages/holland/index",
     "pages/login/login",
     "pages/grade/grade",
-    "pages/consult/consult"
+    "pages/consult/consult",
+    "pages/user/user",
+    "pages/work/work",
+    "pages/work/niuke/niuke",
+    "pages/news/news",
+    "pages/news/goto/goto",
+    "pages/study/study",
+    "pages/community/community",
+    "pages/proposal/proposal",
+    "pages/about/about",
+    "pages/resources/resources"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -14,5 +24,30 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "./images/home (2).png",
+        "iconPath": "./images/home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "./images/robot (2).png",
+        "iconPath": "./images/robot(1).png",
+        "pagePath": "pages/consult/consult",
+        "text": "AI咨询"
+      },
+      {
+        "selectedIconPath": "./images/people (2).png",
+        "iconPath": "./images/people.png",
+        "pagePath": "pages/user/user",
+        "text": "个人中心"
+      }
+    ]
+  }
 }

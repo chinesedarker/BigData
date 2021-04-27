@@ -47,12 +47,12 @@ Page({
   },
   // 提交数据
   referData: function () {
-    var R = 10,
-      A = 20,
-      I = 20,
-      S = 20,
-      E = 30,
-      C = 50;
+    var R = 0,
+      A = 0,
+      I = 0,
+      S = 0,
+      E = 0,
+      C = 0;
     for (var i = 0; i < answerList.length; i++) {
       if (answerList[i] != undefined) {
         // console.log(answerList[i]);
@@ -101,8 +101,9 @@ Page({
     this.setData({
       loadModal: true
     })
+    var that=this
     wx.request({
-      url: "http://47.108.210.238:8880/UserController/submit",
+      url: "https://jobvx.hellosmile.xin/UserController/submit",
       method: "POST",
       data: {
         name: app.globalData.name,
@@ -122,7 +123,7 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-        this.setData({
+        that.setData({
           loadModal: false
         })
         if(res==1){
@@ -255,7 +256,7 @@ Page({
   getQuestion: function () {
     var that = this;
     wx.request({
-      url: 'http://47.108.210.238:8880/QuestionDataVoController/getJson',
+      url: 'https://jobvx.hellosmile.xin/QuestionDataVoController/getJson',
       method: "GET",
       header: {
         'Content-Type': 'json'
@@ -313,7 +314,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    
   },
 
   /**

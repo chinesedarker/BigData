@@ -1,0 +1,31 @@
+/* pages/work/work.wxss */
+.topbox {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+.cardCss {
+  width: 50%;
+  float: left;
+}
+
+.contentText {
+  float: right;
+  text-align: right;
+  overflow: hidden;
+  width: 70%;
+  margin: auto;
+  /*设置为弹性盒子*/
+  display: -webkit-box;
+  /* 表示几行后超出隐藏 */
+  -webkit-line-clamp: 1;
+  /* 超出隐藏 */
+  overflow: hidden;
+  /*超出显示为省略号*/
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  /*强制英文单词自动换行*/
+  word-break: break-all;
+
+}

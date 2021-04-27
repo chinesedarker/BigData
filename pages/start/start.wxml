@@ -1,4 +1,5 @@
 <!--Pages/start/start.wxml-->
 <view class="content">
-  <image src="../../images/start.jpg"></image>
+  <image src="../../images/start.jpg" mode="widthFix"></image>
+  
 </view>

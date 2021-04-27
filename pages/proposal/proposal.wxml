@@ -1,0 +1,62 @@
+<!--pages/proposal/proposal.wxml-->
+<!-- 返回 -->
+<view class="cu-bar bg-white">
+  <view class="action" bindtap="pageBack">
+    <text class="cuIcon-back text-gray"></text> 返回
+  </view>
+  <view class="content text-bold">
+    提交建议
+  </view>
+</view>
+<!-- 内容 -->
+<view class="cu-card case {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="image">
+      <image src="../../images/FAQ.png" mode="widthFix"></image>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-form-group">
+        <view class="title">反馈类型</view>
+        <picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange"
+          value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+            {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+          </view>
+        </picker>
+      </view>
+      <!-- 建议 -->
+      <view class="cu-form-group align-start">
+        <view class="title">建议：</view>
+        <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput"
+          placeholder="您好，我是平台产品经理，欢迎您给我们提出产品的使用感受和建议，我们将尽快处理您提交的宝贵意见，感谢您的支持!"></textarea>
+      </view>
+      <!-- 图片上传 -->
+      <view class="cu-bar bg-white margin-top">
+        <view class="action">
+          图片上传
+        </view>
+        <view class="action">
+          {{imgList.length}}/4
+        </view>
+      </view>
+      <view class="cu-form-group">
+        <view class="grid col-4 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage"
+            data-url="{{imgList[index]}}">
+            <image src='{{imgList[index]}}' mode='aspectFill'></image>
+            <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+              <text class="cuIcon-close"></text>
+            </view>
+          </view>
+          <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+            <text class="cuIcon-cameraadd"></text>
+          </view>
+        </view>
+      </view>
+      <!-- 提交按钮 -->
+      <view class="padding">
+        <button class="cu-btn block bg-blue margin-tb-sm lg" disabled type="submit">提交</button>
+      </view>
+    </view>
+  </view>
+</view>

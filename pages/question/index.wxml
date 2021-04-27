@@ -45,7 +45,7 @@
 		</view>
 	</view>
 	<view style="clear: both;"></view>
-	<!-- <button bindtap="referData">测试提交按钮</button> -->
+	<button bindtap="referData">测试提交按钮</button>
 	<view class='cu-load load-modal' wx:if="{{loadModal}}">
 		<!-- <view class='cuIcon-emojifill text-orange'></view> -->
 		<image src='../../images/loading.png' class='png' mode='aspectFit'></image>

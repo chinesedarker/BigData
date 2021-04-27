@@ -5,7 +5,7 @@ Page({
    */
   data: {
     isShow: true,
-    videoSrc: 'http://hellosmile.xin/holland.mp4', // 视频
+    videoSrc: 'https://job.hellosmile.xin/holland.mp4', // 视频
     videoCoverImg: '../../images/holland.png', // 视频封面图
     videoPlayIcon: '../../images/play.png', // 视频播放icon
     videoLockIcon: '../../images/lock.png', // 视频播放锁

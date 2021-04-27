@@ -24,49 +24,85 @@ Page({
     }],
     // 宫格列表
     iconList: [{
-      icon: 'servicefill ',
+      icon: 'formfill',
       color: 'yellow',
       badge: 0,
-      name: '咨询',
-      click:'gotoConsult'
+      name: '就业',
+      click:'gotoWork'
     }, {
       icon: 'noticefill',
       color: 'olive',
       badge: 2,
-      name: '通知',
-      click:''
+      name: '资讯',
+      click:'gotoNews'
+    }, {
+      icon: 'list',
+      color: 'red',
+      badge: 0,
+      name: '资源',
+      click:'gotoResources'
     },{
       icon: 'discoverfill',
       color: 'purple',
       badge: 0,
       name: '社区',
-      click:''
-    }, {
-      icon: 'friend',
-      color: 'blue',
-      badge: 0,
-      name: '关于',
-      click:''
+      click:'gotoCommunity'
     }, {
       icon: 'commentfill',
       color: 'pink',
       badge: 0,
       name: '反馈',
-      click:''
+      click:'gotoProposal'
     }, {
-      icon: 'more',
-      color: 'red',
+      icon: 'friend',
+      color: 'blue',
       badge: 0,
-      name: '更多',
-      click:''
+      name: '关于',
+      click:'gotoAbout'
     }],
     gridCol:3,
     skin: false,
   },
-  //智能咨询
-  gotoConsult:function(){
+  //资源
+  gotoResources:function(){
     wx.navigateTo({
-      url: '/pages/consult/consult',
+      url: '/pages/resources/resources',
+    })
+  },
+  //关于
+  gotoAbout:function(){
+    wx.navigateTo({
+      url: '/pages/about/about',
+    })
+  },
+  //社区
+  gotoCommunity:function(){
+    wx.navigateTo({
+      url: '/pages/community/community',
+    })
+  },
+  //反馈
+  gotoProposal:function(){
+    wx.navigateTo({
+      url: '/pages/proposal/proposal',
+    })
+  },
+  //资源
+  gotoWork:function(){
+    wx.navigateTo({
+      url: '',
+    })
+  },
+  //资讯
+  gotoNews:function(){
+    wx.navigateTo({
+      url: '/pages/news/news',
+    })
+  },
+  //智能咨询
+  gotoWork:function(){
+    wx.navigateTo({
+      url: '/pages/work/work',
     })
   },
   // 霍兰德跳转

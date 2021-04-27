@@ -56,6 +56,54 @@
         {
           "name": "AI咨询",
           "pathName": "pages/consult/consult",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "资源",
+          "pathName": "pages/resources/resources",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "社区",
+          "pathName": "pages/community/community",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "资讯",
+          "pathName": "pages/news/news",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "建议",
+          "pathName": "pages/proposal/proposal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "关于我们",
+          "pathName": "pages/about/about",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人中心",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "就业",
+          "pathName": "pages/work/work",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "牛客",
+          "pathName": "pages/work/niuke/niuke",
           "scene": null
         }
       ]

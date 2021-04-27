@@ -1,0 +1,70 @@
+<!--pages/resources/resources.wxml-->
+<view class="DrawerPage {{modalName=='viewModal'?'show':''}}">
+  <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
+    duration="500">
+    <swiper-item wx:for="{{4}}" wx:key="index">
+      <image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
+    </swiper-item>
+  </swiper>
+  <view class="VerticalBox">
+    <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}"
+      style="height:calc(100vh - 375rpx)">
+      <view class="cu-item {{index==TabCur?'text-green cur':''}}" bindtap="tabSelect" wx:for="{{list}}"  wx:key="name" data-id="{{index}}">
+        {{item.name}}
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}" class="VerticalMain" scroll-y
+      scroll-with-animation style="height:calc(100vh - 375rpx)" scroll-into-view="main-{{MainCur}}"
+      bindscroll="VerticalMain">
+      <!-- 右边 -->
+      <view class="padding-top padding-lr" wx:for="{{list}}" wx:key="name" id="main-{{index}}">
+        <view class='cu-bar solid-bottom bg-white'>
+          <view class='action'>
+            <text class='cuIcon-title text-green'></text> {{item.name}} </view>
+        </view>
+        <view class="cu-list menu-avatar">
+          <!-- 内容 -->
+          <view class="cu-item" wx:for="{{item.psychicDateVos}}" wx:key="content"  data-content="{{item}}" bindtap="showModal"
+            data-target="viewModal">
+            <view class="cu-avatar round lg" style="background-image:url(http://job.hellosmile.xin/baiduyun.jpg);">
+            </view>
+            <view class="content" style="width: calc(100% - 120rpx - 20rpx);">
+              <view class="text-grey">{{item.twoType}}</view>
+              <view class="text-gray text-sm flex">
+                <text class="text-cut">
+                  <text>{{item.content}}</text>
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 抽屉 -->
+<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+  <text class="cuIcon-pullright"></text>
+</view>
+<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+    <view class="arrow bg-white padding" style="width:80vw;">
+      <image src="../../images/资源.jpg" style="width:69vw;" mode="widthFix"></image>
+      <!-- 标题 -->
+      <view class=" text-center padding" style="width:100%;">
+        <text class="text-black text-bold text-xxl">《{{content.twoType}}》</text>
+      </view>
+      <!-- 内容 -->
+      <view class="CTcontent">
+        <text class="text-black text-bold">介绍：</text>
+        <text class="padding text-black">{{content.content}}</text>
+      </view>
+      <!-- 提取码 -->
+      <view class="TQM">
+        <text class="text-black text-bold">提取码：</text>
+        <text class="padding text-black">{{content.website}}</text>
+      </view>
+      <button class="cu-btn block bg-blue margin-tb-sm lg " style="width:69vw;" bindtap="copy"> 一键复制</button>
+    </view>
+  </view>
+</scroll-view>

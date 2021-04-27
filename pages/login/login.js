@@ -1,6 +1,5 @@
 // pages/login/login.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -34,7 +33,7 @@ Page({
           })
           this.sleep(1000);
           wx.request({
-            url: "http://47.108.210.238:8880/UserController/login",
+            url: "https://jobvx.hellosmile.xin/UserController/login",
             method: "POST",
             data: {
               username: formData.name,
@@ -50,7 +49,6 @@ Page({
               this.setData({
                 loadModal: false
               })
-              res.data = 1;
               if (res.data == 0 || res.data == -1) {
                 wx.showToast({
                   title: '手机验证码有误',
@@ -182,7 +180,7 @@ Page({
       })
       console.log("正在发送短信验证码...")
       wx.request({
-        url: "http://47.108.210.238:8880/UserController/check",
+        url: "https://jobvx.hellosmile.xin/UserController/check",
         method: "POST",
         data: {
           phone: this.data.mobile
@@ -202,21 +200,29 @@ Page({
     let that = this;
     let state2 = "state[2]"
     let state3 = "state[3]"
-    that.setData({
-      [state2]: "bg-grey",
-      [state3]: "",
-    });
-    for (var i = 60; i > 0; i--) {
-      that.setData({
-        waitTime: i + "s",
-      });
-      this.sleep(1000);
+    var countdown = 60;
+    var settime = function (that) {
+      if (countdown == 0) {
+        that.setData({
+          waitTime: "",
+          [state2]: "bg-green",
+          [state3]: "verifyCode",
+        });
+        countdown = 60;
+        return;
+      } else {
+        that.setData({
+          [state2]: "bg-grey",
+          [state3]: "",
+          waitTime:countdown+"s"
+        });
+        countdown--;
+      }
+      setTimeout(function () {
+        settime(that)
+      }, 1000)
     }
-    that.setData({
-      waitTime: "",
-      [state2]: "bg-green",
-      [state3]: "verifyCode",
-    });
+    settime(that);
   },
   //延时函数
   sleep: function (numberMillis) {

@@ -1,0 +1,5 @@
+<!--pages/news/goto/goto.wxml-->
+<!-- 学校创新创业官网 -->
+<web-view src="{{url}}">
+
+</web-view>

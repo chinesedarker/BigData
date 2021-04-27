@@ -1,0 +1,4 @@
+<!--pages/work/niuke/niuke.wxml-->
+<web-view src="{{url}}">
+
+</web-view>

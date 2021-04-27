@@ -44,11 +44,7 @@
     </view>
   </view>
 </view>
-<view class="bottomButton bg-gradual-blue ">
-    <view class=" margin-tb-sm text-center bottomButtonLeft">
-      <button class="cu-btn lg round  button-hover bg-green" bindtap="backHome">返回首页</button>
-    </view>
-    <view class="margin-tb-sm text-center bottomButtonRight">
-      <button class="cu-btn lg round  button-hover bg-green" bindtap="consult">智能咨询</button>
-    </view>
-</view>
+<view class="cu-bar btn-group bottomButton bg-white">
+    <button class="cu-btn bg-green shadow-blur round" bindtap="backHome">返回首页</button>
+    <button class="cu-btn bg-blue shadow-blur round" bindtap="consult">智能咨询</button>
+  </view>

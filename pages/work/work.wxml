@@ -1,0 +1,36 @@
+<!--pages/work/work.wxml-->
+<!-- 搜索栏 -->
+<view class="cu-bar search bg-white topbox">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索公司名字" bindinput="question" confirm-type="search" value="{{question}}"></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow-blur round" bindtap="Search">搜索</button>
+  </view>
+</view>
+<view style="height:50px"></view>
+<!-- 卡片 -->
+<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;">
+  <view class="cu-card case cardCss" wx:for="{{showList}}" wx:for-index="key"
+    style="max-height:283px;min-height:283px;">
+    <view class="cu-item shadow" bindtap="goTourl" data-src="{{item.id}}" style="margin: 10rpx;">
+      <view class="image">
+        <image src="{{item.logo}}" mode="widthFix" style="height:110px;"></image>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">{{item.subject}}</text>
+        </view>
+      </view>
+      <view class="cu-list menu-avatar " style="padding: 16rpx;">
+        <view class="text-black text-bold">{{item.name}}</view>
+        <view class="text-cyan  justify-between">内推 <text class="contentText">{{item.neituiTime}}</text></view>
+        <view class="text-cyan  justify-between">网审 <text class="contentText">{{item.wangshenTime}}</text></view>
+        <view class="text-cyan  justify-between">笔试 <text class="contentText">{{item.testTime}}</text></view>
+        <view class="text-cyan  justify-between">面试 <text class="contentText">{{item.interviewTime}}</text></view>
+        <view class="text-cyan  justify-between">offer <text class="contentText">{{item.offerTime}}</text></view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<!-- 加载 -->
+<view hidden="{{hidden}}" class="cu-load bg-blue loading"></view>
