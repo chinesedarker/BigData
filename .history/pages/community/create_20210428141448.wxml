@@ -1,0 +1,61 @@
+<view class="create clear">
+  <view class="flag">
+    <view class="flagName">
+      <image src="../../images/flag.png"></image>
+      <view class="afterFlag">Flag名称</view>
+    </view>
+    <view class="textarea">
+      <textarea id="write" placeholder="请输入您的目标"></textarea>
+      <view class="setFont">
+        <view class="alert">0</view> /32
+      </view>
+    </view>
+  </view>
+
+  <view class="flag">
+    <view class="flagName ">
+      <image src="../../images/day.png"></image>
+      <view class="afterFlag">坚持天数</view>
+      <view class="fr">
+        <button class="cu-btn round bg-white sm" id="ed">每天</button>
+        <button class="cu-btn round bg-white sm" id="ew">每周</button>
+      </view>
+      <view class="day">
+        <button class="cu-btn bg-white dayBtn">14天</button>
+        <button class="cu-btn bg-white dayBtn">21天</button>
+        <button class="cu-btn bg-white dayBtn">30天</button>
+        <button class="cu-btn bg-white dayBtn">100天</button>
+        <button class="cu-btn bg-white">自定义</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="flag challge">
+    <view class="flagName" style="width:92%">
+      <image src="../../images/money.png"></image>
+      <view class="afterFlag">挑战金</view>
+    </view>
+    <view class="money">
+      <view class="soloMoney">
+        <button class="cu-btn round bg-yellow">  5积分</button>
+      </view>
+      <view class="soloMoney">
+        <button class="cu-btn round bg-yellow"> 10积分</button>
+      </view>
+      <view class="soloMoney">
+        <button class="cu-btn round bg-yellow"> 88积分</button>
+      </view>
+
+      <view class="soloMoney">
+        <button class="cu-btn round bg-yellow">188积分</button>
+      </view>
+      <view class="soloMoney">
+        <button class="cu-btn round bg-yellow">888积分</button>
+      </view>
+      <view class="soloMoney">
+        <button class="cu-btn round bg-yellow">自定义</button>
+      </view>
+      
+    </view>
+  </view>
+</view>

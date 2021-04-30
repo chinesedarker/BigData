@@ -1,8 +1,258 @@
 /* pages/community/community.wxss */
+/*community*/
 .box {
-  margin: 20rpx 0; 
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  width: 100%;
 }
 
 .box view.cu-bar {
   margin-top: 20rpx; 
 }
+swiper{
+  width: 414px;
+  height: 150px;
+}
+.navBar{
+  position: fixed;
+  bottom: 0;
+}
+page{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.tab{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  width: 100%;
+}
+.tab-item{
+  flex: 1;
+  font-size: 7pt;
+  text-align: center;
+  line-height: 72rpx;
+  position: relative;
+}
+.content{
+  flex: 1;
+}
+.content>swiper{
+  height: 100%;
+}
+.tab-item.active{
+  transition: all 0.3s;
+  /* border-bottom: 5rpx solid #20f8ff;
+  color:gradualOrange;
+  font-size: 11pt; */
+
+}
+.tab-item image{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 40%;
+  bottom: 0;
+}
+
+
+/*create*/
+.create{
+  height: 100%;
+  width: 390px;
+  margin: 0 auto;
+}
+.flag{
+  width: 100%;
+
+}
+.flagName{
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+}
+.flagName image{
+  width: 30px;
+  height: 24px;
+
+}
+.flagName .afterFlag{
+  display: inline;
+  font-size: 22px;
+  font-weight: bolder;
+  margin-left: 12px;
+}
+.textarea{
+  width: 93vw;
+  position: relative;
+}
+#write{
+  width: 93vw;
+  background-color: #fff;
+  height: 80px;
+  margin-top: 15px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.setFont{
+  position: absolute;
+  color: #999;
+  right: 4%;
+  bottom: 2%;
+}
+.alert{
+  display: inline;
+}
+.clear{
+  zoom: 1;
+}
+.clear:before, .clear:after {
+  display: table;
+  content: "";
+}
+.clear:after {
+  clear: both;
+}
+.fr{
+  width: 32vw;
+  float: right;
+}
+.day,.week{
+  width: 98vw;
+  margin-top: 12px;
+}
+.week{
+  display: flex;
+  justify-content: space-around;
+}
+.week view{
+  width: 30%;
+  height: 40rpx;
+}
+#ed{
+  margin-right: 5px;
+}
+.dayBtn,.weekBtn{
+  margin-right: 10px;
+}
+.dayBtn{
+  font-weight: bolder;
+}
+.dayInput{
+  width: 121rpx;
+  height: 65rpx;
+  float: right;
+  margin-right: 38rpx;
+  border-radius: 10%;
+}
+.phClass{
+  font-weight: bolder;
+}
+.cu-form-group{
+  min-height: 64rpx;
+}
+.cu-form-group input{
+  font-size: 22rpx;
+}
+.challge{
+  position: absolute;
+  top: 36%;
+}
+.red{
+  display: inline;
+  color: red;
+  margin-left: 7rpx;
+
+}
+.money{
+  margin-top: 20rpx;
+  width: 90vw;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.moneyBtn{
+  font-weight: bolder;
+}
+.soloMoney{
+  margin: 20rpx 30rpx;
+}
+.moneyInput{
+  width: 149rpx;
+  height: 70rpx;
+  text-align: center;
+}
+.fixedPosition{
+  position:fixed;
+  width: 235rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 35rpx;
+  bottom:200rpx;
+  left: 35%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.moneyYellow{
+  background-color:gold;
+}
+.dayYellow{
+  background-color:gold;
+}
+
+/*clock*/
+.clock{
+
+  width: 90vw;
+  margin-left: 5vw;
+  margin-top: 15px;
+  height: 28vh;
+  background-color: #fff;
+  border-radius: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.clockStudy{
+  display: inline;
+  font-size: 14pt;
+  font-weight: bolder;
+  margin-left: 35rpx;
+  /* margin-top: 10rpx !important; */
+}
+.clockDay{
+  margin-left: 35rpx;
+  margin-top: 30rpx;
+  color: rgb(144,144,144);
+}
+.clockBar{
+  width: 601.59rpx;
+  margin: 10rpx auto;
+}
+van-progress{
+  margin-top: 30rpx;
+}
+.clockThing{
+  margin-left: 35rpx;
+  margin-top: 30rpx;
+  height: 92rpx;
+
+}
+.clockThing text{
+  line-height: 92rpx;
+}
+.clockThing text:nth-child(2),.clockThing text:nth-child(3){
+  margin-left: 12rpx;
+}
+
+.clockThing button{
+  width: 19vw;
+  float: right;
+  /* background-color: rgb(240,240,240); */
+  font-weight: bolder;
+  margin-top: 1vh;
+}
+

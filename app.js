@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
+    day:"",
+    userid:"2465",
     name: "",
     idCard: "",
     phone: "",

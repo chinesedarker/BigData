@@ -16,7 +16,8 @@
     "pages/community/community",
     "pages/proposal/proposal",
     "pages/about/about",
-    "pages/resources/resources"
+    "pages/resources/resources",
+    "pages/doclock/doclock"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -49,5 +50,15 @@
         "text": "个人中心"
       }
     ]
+  },
+    
+
+  "usingComponents": {
+    "van-button": "dist/button/index",
+    "van-tab": "dist/tab/index",
+    "van-tabs": "dist/tabs/index",
+    "van-card": "dist/card/index",
+    "van-progress": "dist/progress/index"
+    
   }
 }

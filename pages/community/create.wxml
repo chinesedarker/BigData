@@ -1,0 +1,89 @@
+<view class="create clear">
+  <view class="flag">
+    <view class="flagName">
+      <image src="../../images/flag.png"></image>
+      <view class="afterFlag">Flag名称</view>
+    </view>
+    <view class="textarea">
+      <textarea id="write" placeholder="请输入您的目标" minlength="{{min}}" maxlength="{{max}}" bindinput="inputs"
+        value="{{textArea}}">
+      </textarea>
+      <view class="setFont">
+        <view class="alert">{{currentWordNumber|0}}/{{max}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="flag">
+    <view class="flagName ">
+      <image src="../../images/day.png"></image>
+      <view class="afterFlag">坚持{{isShow?"天":"周"}}数</view>
+      <view class="fr">
+        <button class="cu-btn round  sm {{isShow?'bg-white':''}}" bindtap="switchFun" id="ed">每天</button>
+        <button class="cu-btn round sm {{!isShow?'bg-white':''}}" bindtap="switchTwoFun" id="ew">每周</button>
+      </view>
+      <view class="day" wx:if="{{isShow}}">
+        <button class="cu-btn bg-white dayBtn {{dayList[0]}}" bindtap="dayYellow" data-day="0" data-ay="14">14天</button>
+        <button class="cu-btn bg-white dayBtn {{dayList[1]}}" bindtap="dayYellow" data-day="1" data-ay="21">21天</button>
+        <button class="cu-btn bg-white dayBtn {{dayList[2]}}" bindtap="dayYellow" data-day="2" data-ay="30">30天</button>
+        <button class="cu-btn bg-white dayBtn {{dayList[3]}}" bindtap="dayYellow" data-day="3"
+          data-ay="100">100天</button>
+        <input type="number" class="bg-white dayInput" bindtap="dayYellow" data-day="4" placeholder="自定义"
+          placeholder-class="phClass" bindinput="changeDay">自定义</input>
+      </view>
+      <view class="week" wx:if="{{!isShow}}">
+        <view class="cu-form-group">
+          <input id="weekCount" placeholder="每周打卡次数" placeholder-class="phClass" bindinput="weekcount"></input>
+        </view>
+
+        <view class="cu-form-group">
+          <input id="weekContinuity" placeholder="连续打卡几周" placeholder-class="phClass"
+            bindinput="weekContinuity"></input>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="flag challge">
+    <view class="flagName" style="width:92%">
+      <image src="../../images/money.png"></image>
+      <view class="afterFlag">挑战金</view>
+      <view class="red">（挑战成功全额返还）</view>
+    </view>
+    <view class="money">
+      <view class="soloMoney">
+        <button class="cu-btn bg-white round moneyBtn {{moneyList[0]}} " bindtap="moneyYellow" data-id="0"
+          data-money="5">5积分</button>
+      </view>
+      <view class="soloMoney">
+        <button class="cu-btn round bg-white moneyBtn {{moneyList[1]}}" bindtap="moneyYellow" data-id="1"
+          data-money="10"> 10积分</button>
+      </view>
+      <view class="soloMoney">
+        <button class="cu-btn round bg-white moneyBtn {{moneyList[2]}}" bindtap="moneyYellow" data-id="2"
+          data-money="88"> 88积分</button>
+      </view>
+
+      <view class="soloMoney">
+        <button class="cu-btn round bg-white moneyBtn {{moneyList[3]}}" bindtap="moneyYellow" data-id="3"
+          data-money="188">188积分</button>
+      </view>
+      <view class="soloMoney">
+        <button class="cu-btn round bg-white moneyBtn {{moneyList[4]}}" bindtap="moneyYellow" data-id="4"
+          data-money="888">888积分</button>
+      </view>
+      <view class="soloMoney">
+        <input type="number" class="round bg-white moneyInput" data-id="5" placeholder="自定义" placeholder-class="phClass"
+          bindinput="changeMoney">自定义</input>
+      </view>
+
+    </view> 
+
+    
+
+    <button class="bg-yellow cu-btn round lg margin-tb-sm button-hover fixedPosition" bindtap="post">
+      创建flag
+    </button>
+    <!-- <button class="btn" size="mini">创建flag</button> -->
+  </view>
+</view>

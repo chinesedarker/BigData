@@ -1,0 +1,49 @@
+<van-tabs>
+  <van-tab title="学习中">
+    
+    <view style="height:85vh;" >
+      <block wx:for="{{jsonData[0]}}" wx:key="index">
+      <view  class="clock padding shadow-lg" >
+        <view class="clockStudy">
+          {{item.flagName}}
+        </view>
+        <view class="clockDay">
+          已打卡{{item.finishCount}}/{{item.flagCount}}天
+        </view>
+        <view class="cu-progress round margin-top  sm striped">
+          <view class="bg-green" style="width:{{item.result}};">{{item.result}}</view>
+        </view>
+        <view class="clockThing">
+          <text>围观{{item.circuseeCount}}</text>
+          <text>押金{{item.money}}</text>
+          <button class="cu-btn round button-hover " bindtap="{{item.recentTime==DATE?'none':'todoclock' }}" id="{{item.flagId}}">打卡</button>
+        </view>
+      </view>
+    </block>
+
+
+
+
+
+
+    </view>
+  </van-tab>
+  <van-tab title="已结束">
+    <view class="clock padding shadow-lg" wx:for="{{jsonData[1]}}">
+      <view class="clockStudy">
+        {{item.flagName}}
+      </view>
+      <view class="clockDay">
+        已打卡{{item.finishCount}}/{{item.flagCount}}天
+      </view>
+      <view class="cu-progress round margin-top  sm striped">
+        <view class="bg-gray" style="width:{{item.result}};">{{item.result}}</view>
+      </view>
+      <view class="clockThing">
+        <text>围观{{item.circuseeCount}}</text>
+        <text>挑战积分{{item.money}}分</text>
+        <button class="cu-btn round button-hover bg-gray">已结束</button>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>

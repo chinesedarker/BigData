@@ -1,0 +1,143 @@
+/* pages/community/community.wxss */
+/*community*/
+.box {
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  width: 100%;
+}
+
+.box view.cu-bar {
+  margin-top: 20rpx; 
+}
+swiper{
+  width: 250rpx;
+  height: 90.58rpx;
+}
+.navBar{
+  position: fixed;
+  bottom: 0;
+}
+page{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.tab{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  width: 100%;
+}
+.tab-item{
+  flex: 1;
+  font-size: 7pt;
+  text-align: center;
+  line-height: 72rpx;
+  position: relative;
+}
+.content{
+  flex: 1;
+}
+.content>swiper{
+  height: 100%;
+}
+.tab-item.active{
+  transition: all 0.3s;
+  /* border-bottom: 5rpx solid #20f8ff;
+  color:gradualOrange;
+  font-size: 11pt; */
+
+}
+.tab-item image{
+  width: 12.077rpx;
+  height: 12.077rpx;
+  position: absolute;
+  left: 40%;
+  bottom: 0;
+}
+
+
+/*create*/
+.create{
+  height: 100%;
+  width: 235.507rpx;
+  margin: 0 auto;
+}
+.flag{
+  width: 100%;
+
+}
+.flagName{
+  width: 100%;
+  height: 18.116rpx;
+  margin-top: 12.077rpx;
+}
+.flagName image{
+  width: 18.116rpx;
+  height: 14.493rpx;
+
+}
+.flagName .afterFlag{
+  display: inline;
+  font-size: 13.285rpx;
+  font-weight: bolder;
+  margin-left: 7.246rpx;
+}
+.textarea{
+  position: relative;
+}
+#write{
+  width: 100%;
+  background-color: #fff;
+  height: 80px;
+  margin-top: 15px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.setFont{
+  position: absolute;
+  color: #999;
+  right: 4%;
+  bottom: 2%;
+}
+.alert{
+  display: inline;
+}
+.clear{
+  zoom: 1;
+}
+.clear:before, .clear:after {
+  display: table;
+  content: "";
+}
+.clear:after {
+  clear: both;
+}
+.fr{
+  float: right;
+}
+.day{
+  margin-top: 12px;
+}
+#ed{
+  margin-right: 5px;
+}
+.dayBtn{
+  margin-right: 10px;
+}
+.challge{
+  position: absolute;
+  top: 34%;
+}
+.money{
+  margin-top: 10px;
+  width: 90%;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.soloMoney{
+  margin: 20rpx 30rpx;
+}

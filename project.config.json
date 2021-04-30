@@ -21,9 +21,8 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": true,
+    "useMultiFrameRuntime": false,
     "useApiHook": true,
-    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -33,9 +32,10 @@
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
+    "useApiHostProcess": true,
+    "userConfirmedBundleSwitch": false,
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
@@ -99,6 +99,21 @@
           "id": -1,
           "name": "问题列表",
           "pathName": "pages/question/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/community/community",
+          "pathName": "pages/community/community",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "pages/community/common",
+          "pathName": "pages/community/common",
+          "query": "",
           "scene": null
         }
       ]
