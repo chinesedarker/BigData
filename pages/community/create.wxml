@@ -28,7 +28,7 @@
         <button class="cu-btn bg-white dayBtn {{dayList[2]}}" bindtap="dayYellow" data-day="2" data-ay="30">30天</button>
         <button class="cu-btn bg-white dayBtn {{dayList[3]}}" bindtap="dayYellow" data-day="3"
           data-ay="100">100天</button>
-        <input type="number" class="bg-white dayInput" bindtap="dayYellow" data-day="4" placeholder="自定义"
+        <input type="number" class="bg-white dayInput"  bindtap="dayYellow" data-day="4" placeholder="自定义"
           placeholder-class="phClass" bindinput="changeDay">自定义</input>
       </view>
       <view class="week" wx:if="{{!isShow}}">

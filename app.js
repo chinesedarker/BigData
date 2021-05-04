@@ -40,6 +40,7 @@ App({
     idCard: "",
     phone: "",
     grade: "",
+    tuijianlist:{},
     ColorList: [{
       title: '嫣红',
       name: 'red',

@@ -17,7 +17,8 @@
     "pages/proposal/proposal",
     "pages/about/about",
     "pages/resources/resources",
-    "pages/doclock/doclock"
+    "pages/doclock/doclock",
+    "pages/talk/talk"
   ],
   "window":{
     "backgroundTextStyle":"light",

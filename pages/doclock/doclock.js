@@ -58,18 +58,18 @@ Page({
           "Content-Type": "multipart/form-data"
         },
         success(res) {
-          wx.navigateBack({
-            delta: 1,
+          // wx.navigateBack({
+          //   delta: 1,
+          // })
+          wx.navigateTo({
+            url: '../community/community',
           })
-          console.log("siiiisss");
 
 
           //do something
         },
         fail:function(err){
-          console.log("ssss");
           console.log(err);
-          
         }
       })
     } else {
@@ -89,7 +89,7 @@ Page({
     this.setData({
       flagId: options.id
     })
-    // console.log(this.data.flagId)
+    console.log(this.data.flagId)
   },
 
   /**

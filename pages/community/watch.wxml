@@ -1,38 +1,43 @@
-<view class="cu-card dynamic">
-  <view class="cu-item shadow">
-    <view class="cu-list menu-avatar">
-      <view class="cu-item">
-        <!-- 头像 -->
-        <view class="cu-avatar round lg"
-          style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
-        <view class="content flex-sub">
-          <!-- 用户名 -->
-          <view>凯尔</view>
-          <!-- 发布时间 -->
-          <view class="text-gray text-sm flex justify-between">
-            2019年12月3日
+<scroll-view scroll-y='true' style="height:91%;">
+  <view class="cu-card dynamic" wx:for="{{wgA}}">
+    <view class="cu-item shadow">
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <!-- 头像 -->
+          <view class="cu-avatar round lg"
+            style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+          <view class="content flex-sub">
+            <!-- 用户名 -->
+            <view>{{item.name}}</view>
+            <!-- 发布时间 -->
+            <view class="text-gray text-sm flex justify-between">
+              {{item.createTime}}
+            </view>
           </view>
         </view>
       </view>
-    </view>
-    <!-- 发布内容 -->
-    <view class="text-content">
-      折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！
-    </view>
-    <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
-      <!-- 图片 -->
-      <view class="bg-img {{isCard?'':'only-img'}}"
-        style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"
-        wx:for="{{isCard?9:1}}" wx:key="{{index}}">
+      <!-- 发布内容 -->
+      <view class="text-content">
+        {{item.text}}
+      </view>
+      <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+        <!-- 图片 -->
+        <!-- <view class="bg-img {{isCard?'':'only-img'}}" wx:for="{{isCard?9:1}}" wx:key="{{index}}"> -->
+          <image class="tjImg" src="{{Url+item.images}}"></image>
+        <!-- </view> -->
+      </view>
+      <view class="text-gray text-sm text-right padding">
+        <view class="watchMoney bg-gray text-left ">
+          挑战金: {{item.money}}
+        </view>
+        <!-- 围观
+        <text class="cuIcon-attentionfill margin-lr-xs"></text> 10 -->
+        <!-- 点赞  -->
+        <text class="cuIcon-appreciatefill margin-lr-xs" bindtap="watchlike" data-id="{{item.circleId}}"></text> {{watchlike}}
+        <!-- 评论 -->
+        <!-- <text class="cuIcon-messagefill margin-lr-xs"></text> 评论 -->
       </view>
     </view>
-    <view class="text-gray text-sm text-right padding">
-      <!-- 围观 -->
-      <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-      <!-- 点赞 -->
-      <!-- <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20 -->
-      <!-- 评论 -->
-      <text class="cuIcon-messagefill margin-lr-xs"></text> 30
-    </view>
   </view>
-</view>
+</scroll-view>
+  

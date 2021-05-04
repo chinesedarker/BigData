@@ -52,7 +52,7 @@
       <view class="cuIcon-cu-image" bindtap="changeItem" data-item="2">
         <image src="{{tab==2?'../../images/clock.png':'../../images/clock(1).png'}}" bindtap="changeItem" data-item="2"></image>
       </view>
-      <view bindtap="changeItem" data-item="2">打卡</view>
+      <view bindtap="changeItem"  data-item="2">打卡</view>
     </view>
     <view class="action {{tab==3?'text-green':'text-gray'}}" bindtap="changeItem" data-item="3">
       <view class="cuIcon-cu-image" bindtap="changeItem" data-item="3">

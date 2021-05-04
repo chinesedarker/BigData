@@ -31,7 +31,7 @@ Page({
     isShow: true,
     // StatusBar: app.globalData.StatusBar,
     // CustomBar: app.globalData.CustomBar,
-    //公公页数据
+    //页数据
     item: 0,
     tab: 0,
     //create
@@ -79,6 +79,28 @@ Page({
       url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
     }],
 
+    //推荐
+    userName: '',
+    updataTime: '',
+    userCount: '',
+    tjImg: null,
+    tjFor: 0,
+    //推荐 时间内容数组
+    tjA: [],
+    //推荐 名字数组
+    tjB: [],
+    likeNum: 0,
+    Url: 'http://47.108.210.238:8880',
+
+    //围观
+    watchUserName: '',
+    wacthUpdataTime: '',
+    watchUserCount: '',
+    tjImg: null,
+    watchFor: 0,
+    wgA: [],
+    wgB: [],
+    watchlike: 0
     // TabCur: 0,
     // scrollLeft:0
   },
@@ -129,10 +151,9 @@ Page({
   },
   // 挑战金点击变黄
   moneyYellow: function (res) {
-    console.log(res)
+    // console.log(res)
     // console.log(res.currentTarget.dataset.id)
     let str = "moneyList[" + res.currentTarget.dataset.id + "]";
-
     this.setData({
       daymoney: res.target.dataset.money,
       moneyList: ["", "", "", "", "", ""],
@@ -173,6 +194,10 @@ Page({
     this.setData({
       item: e.target.dataset.item
     })
+    this.daka()
+    this.newWatch()
+    this.onReady()
+    this.onLoad()
   },
   changeTab: function (e) {
     this.setData({
@@ -218,7 +243,7 @@ Page({
         console.log(app.globalData.userid)
         //每天的接口
         wx.request({
-          url: 'http://47.108.210.238:8880/flag/createFlag',
+          url: 'http://47.108.210.238:8880/flag/createFlagDay',
           header: {
             "Content-Type": "application/x-www-form-urlencoded"
           },
@@ -263,23 +288,44 @@ Page({
       } else {
         //每周接口
         wx.request({
-          url: 'https://jobvx.hellosmile.xin/flag/createFlag',
+          url: 'http://47.108.210.238:8880/flag/createFlagWeek',
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
           method: 'POST',
           dataType: "json",
           data: {
-            userid: app.globalData.userid,
-            flag_name: this.data.textArea,
+            userId: app.globalData.userid,
+            flagName: this.data.textArea,
             money: this.data.daymoney,
-            end_time: endWeekTime,
-            flagCount: weekcount
+            endTime: endWeekTime,
+            flagCount: this.data.weekcount
           },
+          success: function (res) {
+            console.log(res);
+            that.setData({
+              textArea: "",
+              dayList: ["", "", "", "", ""],
+              moneyList: ["", "", "", "", "", ""],
+              weekcount: 0,
+              weekContinuity: 0
+            })
+            if (res.data == 1) {
+              wx.showToast({
+                title: '提交成功',
+                icon: 'none'
+              })
+            } else {
+              wx.showToast({
+                title: '提交失败',
+                icon: 'none'
+              })
+            }
+          }
         })
       }
 
     }
-
-
-
     // console.log(this.data.weekmoney);
 
     // console.log(this.data.textArea)
@@ -296,7 +342,77 @@ Page({
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
   },
+  //点赞
+  like: function (e) {
+    // console.log(e);
 
+    var that = this
+
+    wx.request({
+      url: 'http://47.108.210.238:8880/flag/praise',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      data: {
+        circleId: e.target.dataset.id,
+        userId: app.globalData.userid
+      },
+      success: function () {
+        that.setData({
+          likeNum: that.data.likeNum + 1
+        })
+      }
+    })
+  },
+  watchlike: function (e) {
+    var that = this;
+    wx.request({
+      url: 'http://47.108.210.238:8880/flag/praise',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      data: {
+        circleId: e.target.dataset.id,
+        userId: app.globalData.userid
+      },
+      success: function () {
+        that.setData({
+          watchlike: that.data.watchlike + 1
+        })
+      }
+    })
+  },
+  goTalk: function (e) {
+    // console.log(e);
+    wx.navigateTo({
+      url: '../talk/talk?id=' + e.currentTarget.id + '&index=' + e.currentTarget.dataset.index
+    })
+  },
+  //围观
+  goWatch: function (e) {
+    var that = this;
+    wx.request({
+      url: 'http://47.108.210.238:8880/flag/circusee',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      data: {
+        flagId: e.target.dataset.id,
+        userId: app.globalData.userid
+      },
+      success: function (res) {
+        console.log(e.target.dataset.id);
+        console.log(app.globalData.userid);
+        wx.showToast({
+          title: '围观成功',
+          icon: 'none'
+        })
+      }
+    })
+  },
 
 
   // isCard(e) {
@@ -310,23 +426,95 @@ Page({
   onLoad: function (options) {
     var TIME = util.formatTime(new Date());
     var DATE = util.formatDate(new Date());
+    var that = this;
     this.setData({
       time: TIME,
       date: DATE,
-
     })
-    console.log(date);
+    // console.log(date);
 
+    //推荐
+    wx.request({
+      url: 'http://47.108.210.238:8880/flag/friendCircleall',
+      method: 'GET',
+      success: function (res) {
+        let newArr = res.data;
+        // console.log(newArr);
+        
+        // console.log(newArr);
+        // let name = ''
+        // let list = []
+        
+        let a = []
+        let b = []
+        let app = getApp()
+        app.globalData.tuijianlist = newArr
+        for (let index = 0; index < newArr.length; index++) {
+          
+          // for(let j in newArr[index].list){
+          //   list = newArr[index].list[j]
+          // }
+          // name = newArr[index].name
+          // a.push({
+          //   name: name
+          // })
+          // b.push({
+          //   list: list
+          // })
+          
+          let newArray = newArr[index];
+          a.unshift(newArray)
+          // a.push(newArray.list['0'])
+          // b.push(newArray)
+        }
+
+        // console.log(a);
+
+        that.setData({
+          tjA: a
+        })
+
+      }
+    })
+
+    //围观
+    wx.request({
+      url: 'http://47.108.210.238:8880/flag/circuSeeAll',
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        userId: app.globalData.userid
+      },
+      success: function (res) {
+        let newArr = res.data;
+        let a = []
+
+        for (let index = 0; index < newArr.length; index++) {
+          let newArray = newArr[index];
+          a.unshift(newArray)
+
+          // console.log(a);
+        }
+        that.setData({
+          wgA: a
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var that = this
 
+  },
+  daka: function () {
+    //打卡页面初次渲染
+    var that = this
     wx.request({
-      url: 'https://jobvx.hellosmile.xin/flag/clock',
+      url: 'http://47.108.210.238:8880/flag/clock',
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
@@ -335,19 +523,48 @@ Page({
         userId: app.globalData.userid
       },
       success: function (res) {
-        console.log(res.data)
+        // console.log(res);
+        
+        // console.log(res.data)
         that.setData({
           jsonData: res.data
         })
-        console.log(that.data.jsonData)
+        // console.log(that.data.jsonData)
       }
     })
   },
+  newWatch: function () {
+    var that = this
+    wx.request({
+      url: 'http://47.108.210.238:8880/flag/circuSeeAll',
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        userId: app.globalData.userid
+      },
+      success: function (res) {
+        let newArr = res.data;
+        let a = []
+        for (let index = 0; index < newArr.length; index++) {
+          let newArray = newArr[index];
+          a.push(newArray)
 
+          // console.log(a);
+        }
+        that.setData({
+          wgA: a
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.onLoad();
+    // this.goWatch();
 
   },
 

@@ -1,47 +1,63 @@
-<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
-  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
-    <view class="swiper-item">
-      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
-    </view>
-  </swiper-item>
-</swiper>
-<!-- 内容 -->
-<view class="cu-card dynamic">
-  <view class="cu-item shadow">
-    <view class="cu-list menu-avatar">
-      <view class="cu-item">
-        <!-- 头像 -->
-        <view class="cu-avatar round lg"
-          style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
-        <view class="content flex-sub">
-          <!-- 用户名 -->
-          <view>凯尔</view>
-          <!-- 发布时间 -->
-          <view class="text-gray text-sm flex justify-between">
-            2019年12月3日
+<scroll-view scroll-y='true' style="height:91%;">
+  <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true"
+    autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3"
+    indicator-active-color="#0081ff">
+    <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+      <view class="swiper-item">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover"
+          wx:if="{{item.type=='video'}}"></video>
+      </view>
+    </swiper-item>
+  </swiper>
+  <!-- 内容 -->
+
+  <view class="cu-card dynamic" wx:for="{{tjA}}">
+    <view class="cu-item shadow">
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <!-- 头像 -->
+          <view class="cu-avatar round lg"
+            style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+          <view class="content flex-sub">
+            <!-- 用户名 -->
+            <view>{{item.name}}</view>
+            <!-- 发布时间 -->
+            <view class="text-gray text-sm flex justify-between">
+              {{item.createTime}}
+            </view>
           </view>
         </view>
       </view>
-    </view>
-    <!-- 发布内容 -->
-    <view class="text-content">
-      折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！
-    </view>
-    <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
-      <!-- 图片 -->
-      <view class="bg-img {{isCard?'':'only-img'}}"
-        style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"
-        wx:for="{{isCard?9:1}}" wx:key="{{index}}">
+      <!-- 发布内容 -->
+      <view class="text-content">
+        {{item.text}}
+      </view>
+      <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+        <!-- 图片 -->
+        <!-- <view class="bg-img {{isCard?'':'only-img'}}" wx:for="{{isCard?9:1}}" wx:key="{{index}}"> -->
+        <image class="tjImg" src="{{Url+item.images}}"></image>
+        <!-- </view> -->
+      </view>
+      <view class="text-gray text-sm text-right padding">
+        <view class="watchMoney bg-gray text-left ">
+          挑战金: {{item.money}}
+          <button class="cu-btn round bg-gray shadow wgButton tjwatch" role="button" aria-disabled="false"
+            data-id="{{item.flagId}}" bindtap="goWatch">围观</button>
+        </view>
+        <!-- <input type="text" class="reInput text-left tjInput"/> -->
+        <!-- <button class="cu-btn round bg-gray shadow wgButton" role="button" aria-disabled="false"
+          id="{{item.list[0].circleId}}" bindtap="goTalk">评论</button> -->
+        <!-- 围观 -->
+        <!-- <button class="cu-btn round bg-gray shadow wgButton tjwatch" role="button" aria-disabled="false" data-id="{{item.list[0].flagId}}" bindtap="goWatch">围观</button> -->
+        <!-- 点赞 -->
+        <text class="cuIcon-appreciatefill margin-lr-xs liketalk" data-id="{{item.circleId}}"
+          bindtap="like"></text>{{likeNum}}
+        <!-- 评论 -->
+        <text class="cuIcon-messagefill margin-lr-xs liketalk" id="{{item.circleId}}" data-index="{{index}}"
+          bindtap="goTalk">评论</text>
       </view>
     </view>
-    <view class="text-gray text-sm text-right padding">
-      <!-- 围观 -->
-      <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-      <!-- 点赞 -->
-      <!-- <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20 -->
-      <!-- 评论 -->
-      <text class="cuIcon-messagefill margin-lr-xs"></text> 30
-    </view>
   </view>
-</view>
+
+</scroll-view>
