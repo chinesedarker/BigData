@@ -59,7 +59,7 @@
     "van-tab": "dist/tab/index",
     "van-tabs": "dist/tabs/index",
     "van-card": "dist/card/index",
-    "van-progress": "dist/progress/index"
-    
+    "van-progress": "dist/progress/index",
+    "van-icon": "dist/icon/index"
   }
 }

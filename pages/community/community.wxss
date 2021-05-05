@@ -290,7 +290,25 @@ van-progress{
   margin-top: 10rpx;
   padding: 5rpx;
 }
-
+.tjText{
+  margin-top: 5rpx;
+  width:33vw;
+  display:inline-block;
+  overflow:hidden;
+  word-break:keep-all;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  line-height: 14px;
+}
+.textMonty{
+  width:25vw;
+  margin-left: 12rpx;
+}
+.van-icon{
+  position: absolute;
+  top: 16rpx;
+  right: 10px;
+}
 /*watch*/
 .watchMoney{
   width: 100%;
@@ -304,4 +322,33 @@ van-progress{
   color: rgb(50,197,197);
   margin-bottom: 10rpx;
   position: relative;
+}
+.wgText{
+  margin-top: 5rpx;
+  height: 20px;
+  line-height: 24px;
+  width:30vw;
+  display:inline-block;
+  word-break:keep-all;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+/* .wgplaceholder{
+  display:inline-block;
+  margin-left: 70rpx;
+  color: rgb(83, 172, 172);
+} */
+.itemText{
+  font-size: 15px !important;
+}
+.itemFlagName{
+  font-weight: bolder;
+  color: rgb(190, 190, 190);
+}
+.wgFlagName{
+  color: black;
+  height: 20px;
+  line-height: 20px;
+  font-size: 13px !important;
+  font-weight: 600;
 }

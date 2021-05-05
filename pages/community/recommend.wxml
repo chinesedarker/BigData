@@ -27,7 +27,9 @@
               {{item.createTime}}
             </view>
           </view>
+          <van-icon name="ellipsis" class="van-icon"/>
         </view>
+        
       </view>
       <!-- 发布内容 -->
       <view class="text-content">
@@ -36,14 +38,16 @@
       <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
         <!-- 图片 -->
         <!-- <view class="bg-img {{isCard?'':'only-img'}}" wx:for="{{isCard?9:1}}" wx:key="{{index}}"> -->
-        <image class="tjImg" src="{{Url+item.images}}"></image>
+        <image class="tjImg" src="{{Url+item.images}}" mode="aspectFill"></image>
         <!-- </view> -->
       </view>
       <view class="text-gray text-sm text-right padding">
         <view class="watchMoney bg-gray text-left ">
-          挑战金: {{item.money}}
-          <button class="cu-btn round bg-gray shadow wgButton tjwatch" role="button" aria-disabled="false"
-            data-id="{{item.flagId}}" bindtap="goWatch">围观</button>
+          <view style="width: 65vw;">
+            <text class="tjText">{{item.flagName}}</text>
+            <text class="textMonty">挑战金: {{item.money}}</text>
+          </view>
+          <button class="cu-btn round bg-gray shadow wgButton tjwatch" role="button" aria-disabled="false" data-id="{{item.flagId}}" bindtap="goWatch">围观</button>
         </view>
         <!-- <input type="text" class="reInput text-left tjInput"/> -->
         <!-- <button class="cu-btn round bg-gray shadow wgButton" role="button" aria-disabled="false"

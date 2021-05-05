@@ -224,6 +224,7 @@ Page({
   post: function (e) {
     var that = this;
     var endDayTime = this.getNewDay(DATE, this.data.day); //结束时间
+    // console.log(typeof endDayTime);
     var endWeekTime = this.getNewDay(DATE, this.data.weekContinuity * 7)
     console.log(endWeekTime);
     console.log(this.data.textArea)
@@ -523,7 +524,7 @@ Page({
         userId: app.globalData.userid
       },
       success: function (res) {
-        // console.log(res);
+        console.log(res);
         
         // console.log(res.data)
         that.setData({

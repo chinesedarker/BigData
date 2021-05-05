@@ -58,6 +58,8 @@ Page({
           "Content-Type": "multipart/form-data"
         },
         success(res) {
+          console.log(res);
+          
           // wx.navigateBack({
           //   delta: 1,
           // })

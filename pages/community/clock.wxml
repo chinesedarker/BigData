@@ -16,7 +16,8 @@
             <view class="clockThing">
               <text>围观{{item.circuseeCount}}</text>
               <text>押金{{item.money}}</text>
-              <button class="cu-btn round button-hover  {{item.recentTime==DATE?bg-gray:bg-green}}" bindtap="{{item.recentTime==DATE?null:todoclock}}" id="{{item.flagId}}">打卡</button>
+              <!-- <button class="cu-btn round button-hover  {{item.recentTime==DATE?bg-gray:bg-green}}" bindtap="{{item.recentTime==DATE?null:todoclock}}" id="{{item.flagId}}">打卡</button> -->
+              <button class="cu-btn round button-hover  {{item.recentTime==DATE?bg-gray:bg-green}}" bindtap="todoclock" id="{{item.flagId}}">打卡</button>
             </view>
           </view>
         </block>
